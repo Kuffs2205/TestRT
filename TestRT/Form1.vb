@@ -16,9 +16,13 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim NewTest = New Test() With {.Name = $"BlockingTest{CInt(Random.Shared.NextDouble * 1000)}", .Age = Random.Shared.NextDouble * 1000}
-        Backendless.Data.Of(Of Test).Save(NewTest)
+        'Dim NewTest = New Test() With {.Name = $"BlockingTest{CInt(Random.Shared.NextDouble * 1000)}", .Age = Random.Shared.NextDouble * 1000}
+        'Backendless.Data.Of(Of Test).Save(NewTest)
+        'MsgBox("Call has returned")
+
+        Dim res = Backendless.Data.Of("Test").Save(New Dictionary(Of String, Object) From {{"foo", "gggg"}})
         MsgBox("Call has returned")
+
     End Sub
 End Class
 
